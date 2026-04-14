@@ -1,0 +1,17 @@
+.page-not-found {
+  background-color: var(--bs-dark);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+i.bi-ban {
+  font-size: 5rem;
+}

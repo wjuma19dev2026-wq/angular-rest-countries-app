@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a
+      class="navbar-brand"
+      href="#"
+      >Countries</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span
+        class="toggler-icon"
+        aria-hidden="true">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="countries"
+            >Country</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="favorites"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+      <!-- TODO: Add search form -->
+      <app-search />
+    </div>
+  </div>
+</nav>

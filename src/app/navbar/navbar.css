@@ -1,0 +1,64 @@
+button {
+  border: 0;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+button:focus,
+button:active,
+button:focus-within,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggler-icon {
+  width: 22px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.toggler-icon .bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  transition:
+    transform 180ms ease,
+    top 180ms ease,
+    opacity 120ms ease;
+}
+
+.toggler-icon .bar:nth-child(1) {
+  top: 0;
+}
+.toggler-icon .bar:nth-child(2) {
+  top: 7px;
+}
+.toggler-icon .bar:nth-child(3) {
+  top: 14px;
+}
+
+button.navbar-toggler[aria-expanded='true'] .toggler-icon .bar:nth-child(1) {
+  top: 7px;
+  transform: rotate(45deg);
+}
+button.navbar-toggler[aria-expanded='true'] .toggler-icon .bar:nth-child(2) {
+  opacity: 0;
+}
+button.navbar-toggler[aria-expanded='true'] .toggler-icon .bar:nth-child(3) {
+  top: 7px;
+  transform: rotate(-45deg);
+}
