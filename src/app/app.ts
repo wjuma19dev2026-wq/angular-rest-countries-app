@@ -11,17 +11,4 @@ import { Footer } from "./footer/footer";
   templateUrl: "./app.html",
   styleUrl: "./app.css",
 })
-export class App implements OnInit, OnDestroy {
-  constructor(private searchSvs: SearchService) {}
-  searchSubscription!: Subscription;
-
-  ngOnInit(): void {
-    this.searchSubscription = this.searchSvs.onInputSubmitValue.subscribe(searchText => {
-      console.log(searchText);
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.searchSubscription.unsubscribe();
-  }
-}
+export class App {}

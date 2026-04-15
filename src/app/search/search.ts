@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormsModule, NgForm } from "@angular/forms";
 import { SearchService } from "./search.service";
 
@@ -11,7 +11,7 @@ import { SearchService } from "./search.service";
 export class Search {
   constructor(private searchSvs: SearchService) {}
 
-  onSubmit(form: NgForm) {
-    this.searchSvs.onInputSubmitValue.next(form.value["search"]);
+  onInputChange(event: Event) {
+    this.searchSvs.onInputSubmitValue.next((event.target as HTMLInputElement).value);
   }
 }

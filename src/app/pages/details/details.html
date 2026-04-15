@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 mt-5">
+      @if (country) {
+        <div class="card">
+          <img
+            [src]="country.flags.png"
+            [alt]="country.flags.alt"
+            class="card-img-top" />
+          <div class="card-body">
+            <h3 class="card-title">{{ country.name.common }}</h3>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="bi bi-people"></i>
+                Population:
+                <span class="fw-bold text-muted">{{ country.population | currency: " " }}</span>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-globe"></i>
+                Region:
+                <span class="fw-bold text-muted">{{ country.region }}</span>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-translate"></i>
+                Language:
+                <span class="fw-bold text-muted">{{ country.languages }}</span>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-geo-alt"></i>
+                Subregion:
+                <span class="fw-bold text-muted">{{ country.subregion }}</span>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-diagram-2"></i>
+                Neibors:
+                <span class="fw-bold text-muted">{{ country.borders }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

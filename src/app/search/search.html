@@ -1,11 +1,10 @@
-<form class="d-flex" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+<form class="d-flex">
   <input
     name="search"
     ngModel
+    (input)="onInputChange($event)"
     class="form-control me-2"
     type="search"
     placeholder="Type country name"
-    aria-label="Search"
-  />
-  <button class="btn btn-outline-light" type="submit">Search</button>
+    aria-label="Search" />
 </form>
