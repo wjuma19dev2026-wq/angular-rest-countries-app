@@ -1,59 +1,81 @@
-# Restcountries
+# Restcountries (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+App de práctica en Angular que consume la API de **REST Countries** para listar países, navegar al detalle de un país y gestionar una sección de favoritos. Incluye búsqueda en el listado y UI con Bootstrap.
 
-## Development server
+## Demo (local)
 
-To start a local development server, run:
+- **URL**: `http://localhost:4200`
+
+## Funcionalidades
+
+- **Listado de países**: vista `Countries` con países obtenidos desde la API.
+- **Detalle de país**: ruta con parámetro `country/:countryName` (vista `Details`).
+- **Favoritos**: ruta `favorites` (vista `Favorites`).
+- **Búsqueda**: componente `Search` en el navbar; el texto se propaga con un servicio y se filtra con un pipe.
+- **Routing + 404**: fallback a `PageNotFound`.
+- **UI**: Bootstrap 5 + animación del botón hamburguesa del navbar.
+
+## Rutas
+
+Definidas en `src/app/app.routes.ts`:
+
+- **`/countries`**: listado principal
+- **`/favorites`**: favoritos
+- **`/country/:countryName`**: detalle por nombre (full text)
+- **`/**`**: página 404
+
+## Stack / librerías
+
+- **Angular**: 21.x (standalone components)
+- **RxJS**: 7.8.x
+- **Estilos**: Bootstrap 5 + Bootstrap Icons
+
+## API
+
+- **Base URL**: configurada en `src/environments/*` como `apiUrl`
+- **Endpoints usados**:
+  - **Listado**: `/all?fields=name,region`
+  - **Detalle**: `/name/:countryName?fullText=true`
+
+## Estructura relevante
+
+- **`src/app/navbar/`**: navbar + `Search`
+- **`src/app/search/`**: input de búsqueda y `SearchService`
+- **`src/app/pages/countries/`**: página principal + `CountryService`
+- **`src/app/pipes/search.pipe.ts`**: filtro por texto (usa `RegExp`)
+
+## Requisitos
+
+- **Node.js** y **npm**
+- **Angular CLI** (recomendado)
+
+## Instalación y ejecución
+
+Instalar dependencias:
 
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Servidor de desarrollo:
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Build:
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
-
-To build the project run:
+Tests:
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Notas
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- El listado se obtiene al iniciar la app (ver `CountryService`).
+- La búsqueda filtra por nombre común (`country.name.common`) ignorando mayúsculas/minúsculas.
